@@ -1,22 +1,12 @@
-import java.util.StringTokenizer;
 class Solution {
     public String reverseWords(String s) {
-        StringTokenizer st = new StringTokenizer(s);
+        String[] words = s.trim().split("\\s+");
+        StringBuilder rev = new StringBuilder();
 
-         Stack<String> stack = new Stack<>();
-         while (st.hasMoreTokens()) {
-            stack.push(st.nextToken());
+        for (int i = words.length - 1; i >= 0; i--) {
+            rev.append(words[i]).append(" ");
         }
 
-        StringBuilder sb = new StringBuilder();
-        while(!stack.isEmpty()){
-            sb.append(stack.pop());
-            if (!stack.isEmpty()) {
-                sb.append(" ");
-        }
-
-
-        }
-        return sb.toString();   
+        return rev.toString().trim();
     }
 }
